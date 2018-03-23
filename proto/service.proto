@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message Request {
+    int32 id = 1;
+}
+
+message Response {
+    int32 response = 1;
+}
+
+service TestService {
+    rpc UnaryUnary (Request) returns (Response) {
+    }
+    rpc UnaryStream (Request) returns (stream Response) {
+    }
+    rpc StreamUnary (stream Request) returns (Response) {
+    }
+    rpc StreamStream (stream Request) returns (stream Response) {
+    }
+}
