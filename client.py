@@ -22,6 +22,7 @@ def make_requests(client):
     resp = client.StreamStream(req)
     import time
     time.sleep(1)
+    # let server abort before seeing if we get first response
     next(resp)
     try:
         next(resp)

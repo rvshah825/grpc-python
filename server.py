@@ -20,7 +20,7 @@ class TestServicer(TestServiceServicer):
 
     def StreamStream(self, request_iterator, context):
         yield Response(response=1)
-        raise Exception()
+        context.abort(grpc.StatusCode.INVALID_ARGUMENT, "test")
 
 
 def make_server(port):
